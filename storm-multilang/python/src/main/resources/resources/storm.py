@@ -197,7 +197,7 @@ class Bolt(object):
                 else:
                     self.process(tup)
         except Exception as e:
-            reportError(traceback.format_exc(e))
+            reportError(traceback.format_exc())
 
 class BasicBolt(object):
     def initialize(self, stormconf, context):
@@ -223,10 +223,10 @@ class BasicBolt(object):
                         self.process(tup)
                         ack(tup)
                     except Exception as e:
-                        reportError(traceback.format_exc(e))
+                        reportError(traceback.format_exc())
                         fail(tup)
         except Exception as e:
-            reportError(traceback.format_exc(e))
+            reportError(traceback.format_exc())
 
 class Spout(object):
     def initialize(self, conf, context):
@@ -267,4 +267,4 @@ class Spout(object):
                     self.fail(msg["id"])
                 sync()
         except Exception as e:
-            reportError(traceback.format_exc(e))
+            reportError(traceback.format_exc())
